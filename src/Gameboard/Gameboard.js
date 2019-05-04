@@ -93,7 +93,7 @@ export default function Game() {
                 <p>Timer starts as soon as you click start!</p>
                 <button onClick={readyPlay} autoFocus={true}>Start!</button>
             </Modal>}
-            <p>Time: {timer} s.</p>
+            <p>Time: <time>{timer}</time> s.</p>
             <Board
                 dimension={dimension}
                 cards={cards}

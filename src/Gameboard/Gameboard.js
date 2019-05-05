@@ -125,7 +125,7 @@ export default function Game() {
                 <fieldset>
                     <legend><h2>{value.player_name}'s Results</h2></legend>
                     <p>Completed in {timer} seconds!</p>
-                    <Link><button autoFocus={true}>View Leaderboard</button></Link>
+                    <Link to='leaderboard'><button autoFocus={true}>View Leaderboard</button></Link>
                 </fieldset>
                 <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
                     "The storage capacity of the human brain is virtually limitless. Yep, <em>limitless</em>."

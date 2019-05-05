@@ -18,20 +18,38 @@ export default function Game() {
     const [solved, setSolved] = useState([])
     const [disabled, setDisabled] = useState(false)
 
-    function timerCounter() {
-        if(timerReady) {
-            const stopwatch = setInterval(() =>
-                setTimer(timer => timer + 1)
-            , 1000)
-        }
-    }
-
     useEffect(() => {
-        timerCounter()
-        // return function stopTimer() {
-        //     clearInterval()
-        // }
-    }, [timerReady])
+        if (solved.length === 16) {
+            setTimerReady(false)
+        }
+    }, [solved])
+    
+    useEffect(() => {
+        console.log(`Start the timer?`)
+
+            let stopwatch;
+            if(stopwatch){
+                console.log(`Stop timer 1`)
+                clearInterval(stopwatch)
+            }
+            stopwatch = setInterval(() => {
+                if(!!timerReady) {
+                    console.log(`stopwatch ran`)
+                    setTimer(timer => timer + 1)
+                } else {
+                    console.log(`Stop timer 2`)
+                    clearInterval(stopwatch)
+                }
+            }, 1000)
+            if(!timerReady && solved.length < 16) {
+                console.log(`Stop timer 2`)
+                clearInterval(stopwatch)
+            }
+            return () => { 
+                console.log(`ran the return`)
+                clearInterval(stopwatch);}
+
+}, [timerReady])
 
     useEffect(() => {
         resizeBoard()
@@ -93,7 +111,7 @@ export default function Game() {
                 <p>Timer starts as soon as you click start!</p>
                 <button onClick={readyPlay} autoFocus={true}>Start!</button>
             </Modal>}
-            <p>Time: <time>{timer}</time> s.</p>
+            <p><time>{timer}</time> s.</p>
             <Board
                 dimension={dimension}
                 cards={cards}
@@ -102,6 +120,17 @@ export default function Game() {
                 disabled={disabled}
                 solved={solved}
             />
+            {solved.length === 16 && <Modal>
+                <fieldset>
+                    <legend><h2>{value.player_name}'s Results</h2></legend>
+                    <p>Completed in {timer} seconds!</p>
+                    <button autoFocus={true}>View Leaderboard</button>
+                </fieldset>
+                <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
+                    "The storage capacity of the human brain is virtually limitless. Yep, <em>limitless</em>."
+                </blockquote>
+            </Modal>
+            }
         </div>
     )
 }

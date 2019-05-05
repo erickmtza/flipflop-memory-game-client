@@ -1,12 +1,11 @@
 import React from 'react';
-import path from 'path';
 import './Card.css';
 
 export default function Card({disabled, solved, handleClick, id, type, flipped, height, width}) {
 
     const imageType = require(`../img/${type}.png`);
     const classFlip = flipped ? 'flipped flip-container' : 'flip-container'
-    
+
     return (
         <div
             tabIndex={0}

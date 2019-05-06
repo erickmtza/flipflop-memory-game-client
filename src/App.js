@@ -8,7 +8,6 @@ import Gameboard from './Gameboard/Gameboard'
 
 class App extends React.Component {
   state = {
-    players: [],
     player_name: '',
     showNameInput: false,
   }
@@ -33,7 +32,6 @@ class App extends React.Component {
   render() {
 
     const memoryValue = {
-      players: this.state.players,
       player_name: this.state.player_name,
       showNameModal: this.showNameModal,
       hideNameModal: this.hideNameModal,

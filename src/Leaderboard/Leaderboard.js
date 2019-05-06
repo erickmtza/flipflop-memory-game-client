@@ -1,21 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MemoryContext from '../MemoryContext/MemoryContext'
 
 function Leaderboard() {
-    const value = useContext(MemoryContext)
+    const [players, setPlayers] = useState([])
 
-    const players = value.players.map((player, i) => (
+    const playerList = players.map((player, i) => (
         <tr key={i}>
-            <td>{player.player_id}</td>
+            <td>{i}</td>
             <td>{player.player_name}</td>
             <td>{player.timer}</td>
-            <td>{player.date_published}</td>
+            <td>{player.date_published.toLocaleString()}</td>
         </tr>
     ))
 
+    useEffect(() => {
+
+        fetch(`http://localhost:8000/api/players`)
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                return res.json()
+            })
+            .then((res) => {
+                setPlayers(res)
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+    }, [])
+
     return (
         <main>
-            <h2>Top {value.players.length} Leaderboard</h2>
+            <h2>Top {players.length} Leaderboard</h2>
             <table>
                 <tbody>
                     <tr>
@@ -24,7 +40,7 @@ function Leaderboard() {
                         <th>Time (sec.)</th>
                         <th>Date</th>
                     </tr>
-                    {players}
+                    {playerList}
                 </tbody>
                 
             </table>

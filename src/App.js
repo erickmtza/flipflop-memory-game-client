@@ -8,26 +8,7 @@ import Gameboard from './Gameboard/Gameboard'
 
 class App extends React.Component {
   state = {
-    players: [
-      {
-        "player_id": 1,
-        "player_name": "name",
-        "timer": 50,
-        "date_published": new Date().toLocaleDateString()
-      },
-      {
-        "player_id": 1,
-        "player_name": "name",
-        "timer": 50,
-        "date_published": new Date().toLocaleDateString()
-      },
-      {
-        "player_id": 1,
-        "player_name": "name",
-        "timer": 50,
-        "date_published": new Date().toLocaleDateString()
-      }
-    ],
+    players: [],
     player_name: '',
     showNameInput: false,
   }

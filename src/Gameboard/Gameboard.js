@@ -73,7 +73,7 @@ export default function Game() {
     const handleClick = (id) => {
         setDisabled(true)
         if (flipped.length === 0) {
-            setFlipped((flipped) => [...flipped, id])
+            setFlipped([...flipped, id])
             setDisabled(false)
         } else {
             if (sameCardClicked(id)) return

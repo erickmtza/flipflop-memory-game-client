@@ -8,13 +8,13 @@ function Leaderboard() {
             <td>{++i}</td>
             <td>{player.player_name}</td>
             <td>{player.timer}</td>
-            <td>{new Date(player.date_published).toLocaleString()}</td>
+            <td>{player.date_published}</td>
         </tr>
     ))
 
     useEffect(() => {
 
-        fetch(`http://localhost:8000/api/players`)
+        fetch(`http://localhost:8000/api/playerOrder`)
             .then(res => {
                 if (!res.ok)
                     return res.json().then(error => {

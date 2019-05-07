@@ -49,7 +49,6 @@ export default function Game() {
                 console.error({ error })
             })
         }
-        
     
     }, [timerReady])
 
@@ -144,7 +143,7 @@ export default function Game() {
             {!ready && <Modal>
                 <p>Do your best {value.player_name}!</p>
                 <p>Timer starts as soon as you click start!</p>
-                <button onClick={readyPlay} autoFocus={true}>Start!</button>
+                <button onClick={readyPlay} autoFocus={true} disabled={!value.player_name}>Start!</button>
             </Modal>}
             <p><time>{timer}</time> s.</p>
             <Board

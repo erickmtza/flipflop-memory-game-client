@@ -14,7 +14,7 @@ function Leaderboard() {
 
     useEffect(() => {
 
-        fetch(`http://localhost:8000/api/playerOrder`)
+        fetch(`https://evening-fjord-94655.herokuapp.com/api/playerOrder`)
             .then(res => {
                 if (!res.ok)
                     return res.json().then(error => {

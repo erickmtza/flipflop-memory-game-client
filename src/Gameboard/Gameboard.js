@@ -27,7 +27,7 @@ export default function Game() {
 
         console.log(playerPost)
         if (solved.length === 16 && timer !== 0) {
-            fetch(`http://localhost:8000/api/players`, {
+            fetch(`https://evening-fjord-94655.herokuapp.com/api/players`, {
                 method: 'POST',
                 body: JSON.stringify(playerPost),
                 headers: {

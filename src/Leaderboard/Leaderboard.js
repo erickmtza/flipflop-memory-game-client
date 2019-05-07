@@ -1,15 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import MemoryContext from '../MemoryContext/MemoryContext'
+import React, { useEffect, useState } from 'react'
 
 function Leaderboard() {
     const [players, setPlayers] = useState([])
 
     const playerList = players.map((player, i) => (
         <tr key={i}>
-            <td>{i}</td>
+            <td>{++i}</td>
             <td>{player.player_name}</td>
             <td>{player.timer}</td>
-            <td>{player.date_published.toLocaleString()}</td>
+            <td>{new Date(player.date_published).toLocaleString()}</td>
         </tr>
     ))
 
@@ -18,7 +17,9 @@ function Leaderboard() {
         fetch(`http://localhost:8000/api/players`)
             .then(res => {
                 if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
+                    return res.json().then(error => {
+                        throw error
+                    })
                 return res.json()
             })
             .then((res) => {
@@ -44,7 +45,7 @@ function Leaderboard() {
                 </tbody>
                 
             </table>
-            <blockquote cite="">"Scientific research has shown that the human brain starts remembering things from the womb. In fact, memory begins to work 20 weeks after conception."
+            <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">"Scientific research has shown that the human brain starts remembering things from the womb. In fact, memory begins to work 20 weeks after conception."
             </blockquote>
         </main>
        

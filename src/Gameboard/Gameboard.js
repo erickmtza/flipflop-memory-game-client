@@ -20,6 +20,40 @@ export default function Game() {
     const [disabled, setDisabled] = useState(false)
 
     useEffect(() => {
+        const playerPost = {
+            "player_name": value.player_name,
+            "timer": timer,
+        }
+
+        console.log(playerPost)
+        if (solved.length === 16 && timer !== 0) {
+            fetch(`http://localhost:8000/api/players`, {
+                method: 'POST',
+                body: JSON.stringify(playerPost),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => {
+                        throw error
+                    })
+                }
+                return res.json()
+            })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => {
+                console.error({ error })
+            })
+        }
+        
+    
+    }, [timerReady])
+
+    useEffect(() => {
         if (solved.length === 16) {
             setTimerReady(false)
         }
@@ -121,7 +155,7 @@ export default function Game() {
                 disabled={disabled}
                 solved={solved}
             />
-            {solved.length === 16 && <Modal>
+            {solved.length === 16 && timer !== 0 && <Modal>
                 <fieldset>
                     <legend><h2>{value.player_name}'s Results</h2></legend>
                     <p>Completed in {timer} seconds!</p>

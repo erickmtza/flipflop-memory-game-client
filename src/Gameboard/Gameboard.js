@@ -141,6 +141,7 @@ export default function Game() {
     return (
         <div>
             {!ready && <Modal>
+                <p>Click on a tile to reveal its identifying image. Click on a second tile to reveal a match or Not!! Non matches will revert to face down.</p>
                 <p>Do your best {value.player_name}!</p>
                 <p>Timer starts as soon as you click start!</p>
                 <button onClick={readyPlay} autoFocus={true} disabled={!value.player_name}>Start!</button>

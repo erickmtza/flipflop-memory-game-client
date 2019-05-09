@@ -4,7 +4,7 @@ import MemoryContext from '../MemoryContext/MemoryContext'
 import { Link } from 'react-router-dom'
 
 import Modal from '../Modal/Modal'
-
+import GameGif from '../img/game-gif.gif'
 
 
 function LandingPage(props) {
@@ -15,16 +15,20 @@ function LandingPage(props) {
                 return (
                     <main>
 
-                        <div>
-                            <p>Test your memory.<br />Flip tiles for a match</p>
-                            <p>[image placeholder]</p>
-                        </div>
-                        <div>
+                        <section>
+                            <figure>
+                                <img src={GameGif} alt="memory game board" />
+                                <figcaption>Test your memory.<br />Flip tiles for a match</figcaption>
+                            </figure>
+                            
+                            
+                        </section>
+                        <section className="engage-user">
                             <p>Jump right in and practice your memory skills or view the leaderboard for player stats.</p>
                             <button
                                 onClick={context.showNameModal}>Play Game</button>
                             <Link to='leaderboard'><button>Leaderboard</button></Link>
-                        </div>
+                        </section>
                         <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
                             "You must exercise your mind just like any other muscle in your body. The harder you think about a memory, the more likely you are to remember it accurately. Thinking will create a stronger link between active neurons."
                         </blockquote>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "FlipFlop",
+  "name": "FlipFlop Memory Game",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,6 +8,7 @@
       "type": "image/x-icon"
     }
   ],
+  "description": "A simple memory game that test your memory skill. A record is kept along with a provided name and tracked though the leaderboard.",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

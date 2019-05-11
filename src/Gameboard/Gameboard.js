@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import './Gameboard.css'
 import Board from '../Board/Board'
 import Modal from '../Modal/Modal'
 import { Link } from 'react-router-dom'
@@ -7,7 +8,7 @@ import MemoryContext from '../MemoryContext/MemoryContext'
 
 import randomizeDeck from '../RandomizeDeck/RandomizedDeck'
 
-export default function Game() {
+export default function Gameboard() {
     const value = useContext(MemoryContext)
 
     const [ready, setReady] = useState(false)
@@ -83,7 +84,7 @@ export default function Game() {
                 console.log(`ran the return`)
                 clearInterval(stopwatch);}
 
-}, [timerReady])
+    }, [timerReady])
 
     useEffect(() => {
         resizeBoard()
@@ -139,14 +140,27 @@ export default function Game() {
     }
 
     return (
-        <div>
+        <main>
             {!ready && <Modal>
-                <p>Click on a tile to reveal its identifying image. Click on a second tile to reveal a match or Not!! Non matches will revert to face down.</p>
-                <p>Do your best {value.player_name}!</p>
-                <p>Timer starts as soon as you click start!</p>
-                <button onClick={readyPlay} autoFocus={true} disabled={!value.player_name}>Start!</button>
+                <section class="modal-start">
+                    {!value.player_name ? 
+                    <><p>Please visit the home page to set up your player name.</p>
+                    <Link to="/"><button className="modal-start-btn">Home</button></Link></>
+                    :
+                    (<><p>Click on a tile to reveal its identifying image. Click on a second tile to reveal a match or Not!! Non matches will revert to face down.</p>
+                    <p>Do your best <strong>{value.player_name}</strong>!</p>
+                    <p>Timer starts as soon as you click start!</p>
+                    <button className="modal-start-btn" onClick={readyPlay} autoFocus={true} disabled={!value.player_name}>Start!</button></>)
+                    }
+                    
+                </section>
+                
             </Modal>}
-            <p><time>{timer}</time> s.</p>
+            <section className="timer">
+                <p>
+                    <time>{timer}</time> s.
+                </p>
+            </section>
             <Board
                 dimension={dimension}
                 cards={cards}
@@ -158,14 +172,14 @@ export default function Game() {
             {solved.length === 16 && timer !== 0 && <Modal>
                 <fieldset>
                     <legend><h2>{value.player_name}'s Results</h2></legend>
-                    <p>Completed in {timer} seconds!</p>
-                    <Link to='leaderboard'><button autoFocus={true}>View Leaderboard</button></Link>
+                    <p>Completed in <strong>{timer}</strong> seconds!</p>
+                    <Link to='leaderboard'><button className="modal-end-btn" autoFocus={true}>View Leaderboard</button></Link>
                 </fieldset>
-                <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
-                    "The storage capacity of the human brain is virtually limitless. Yep, <em>limitless</em>."
+                <blockquote className="bq-modal" cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
+                    <span>"</span>The storage capacity of the human brain is virtually limitless. Yep, <em>limitless</em>.<span>"</span>
                 </blockquote>
             </Modal>
             }
-        </div>
+        </main>
     )
 }

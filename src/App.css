@@ -59,3 +59,11 @@ nav ul li, nav ul li a {
     text-decoration: none;
     color: white;
 }
+
+.Github:hover {
+    cursor: pointer;
+}
+
+.Github, .Linkedin {
+    margin-bottom: 5px;
+}

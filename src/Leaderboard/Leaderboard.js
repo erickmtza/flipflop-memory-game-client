@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import './Leaderboard.css'
+import Loader from '../img/loader.gif'
 
 function Leaderboard() {
     const [players, setPlayers] = useState([])
@@ -32,7 +34,7 @@ function Leaderboard() {
 
     return (
         <main>
-            <h2>Top {players.length} Leaderboard</h2>
+            <h2 className="top-lb">Top {players.length === 0 ? `~` : players.length} Leaderboard</h2>
             <table>
                 <tbody>
                     <tr>
@@ -43,9 +45,14 @@ function Leaderboard() {
                     </tr>
                     {playerList}
                 </tbody>
-                
             </table>
-            <blockquote cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">"Scientific research has shown that the human brain starts remembering things from the womb. In fact, memory begins to work 20 weeks after conception."
+            {players.length === 0 && 
+                <section className="img-container">
+                    <img src={Loader} alt="loading" className="loading" />
+                </section>
+            }
+            <blockquote className="lb-bq" cite="http://www.theceugroup.com/12-surprising-human-memory-facts/">
+                <span>"</span>Scientific research has shown that the human brain starts remembering things from the womb. In fact, memory begins to work 20 weeks after conception.<span>"</span>
             </blockquote>
         </main>
        

@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, header p {
+    font-family: 'Amatic SC', cursive;
+    margin-top: 10px;
+}
+
+.title {
+    text-decoration: none;
+    color: white;
+}
+
+.flip:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.flop:hover {
+    background-color: black;
+    color:white;
+}
+
+.flip {
+    background-color: black;
+    padding-left: 5px;
+    padding-right: 2.5px;
+}
+
+.flop {
+    color: black;
+    padding-left: 2.5px;
+    padding-right: 5px;
+}
+
+header {
+    text-align: center;
+}
+
+.memory-game {
+    font-size: 2em;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: rgb(37, 92, 124);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav ul li, nav ul li a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}

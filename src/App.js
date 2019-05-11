@@ -2,6 +2,8 @@ import React from 'react'
 import './App.css'
 import { Route, Link } from 'react-router-dom';
 import MemoryContext from './MemoryContext/MemoryContext'
+import GitHub from './img/github.svg'
+import LinkedIn from './img/linkedin.svg'
 
 import LandingPage from './LandingPage/LandingPage'
 import Leaderboard from './Leaderboard/Leaderboard'
@@ -76,11 +78,11 @@ class App extends React.Component {
         <footer role="contentinfo">
           <nav>
             <ul>
-            <li><a href="https://github.com/erickmtza/flipflop-memory-game-client" onClick={this.leavingPage}>Github</a></li>
-            <li><a href="https://www.linkedin.com/in/erick-martinez-169099162/" onClick={this.leavingPage}>LinkedIn</a></li>
-          </ul>
+              <li className="Github" ><a href="https://github.com/erickmtza/flipflop-memory-game-client" onClick={this.leavingPage}><img src={GitHub} alt="Github"/></a></li>
+              <li className="Linkedin"><a href="https://www.linkedin.com/in/erick-martinez-169099162/" onClick={this.leavingPage}><img src={LinkedIn} alt="LinkedIn"/></a></li>
+            </ul>
           </nav>
-          <section><strong>Developed 2019</strong></section>
+          <section><strong>Developed 2019 Erick Martinez</strong></section>
         </footer>
 
       </MemoryContext.Provider>

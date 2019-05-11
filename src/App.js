@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { Route, Link } from 'react-router-dom';
 import MemoryContext from './MemoryContext/MemoryContext'
 
@@ -29,6 +30,13 @@ class App extends React.Component {
     push('/gameboard')
   }
 
+  leavingPage = () => {
+    window.onbeforeunload = function(){
+      return 'Are you sure you want to leave?';
+    };
+  }
+  
+
   render() {
 
     const memoryValue = {
@@ -45,9 +53,9 @@ class App extends React.Component {
       > 
         <header>
           <h1>
-            <Link to='/' title='Home'>flip-flop</Link>
+            <Link to='/' title='Home' className="title"><span className="flip">FLIP</span><span className="flop">FLOP</span></Link>
           </h1>
-          <p>Memory Game</p>
+          <p className="memory-game" >Memory Game</p>
         </header>
 
         <Route
@@ -66,7 +74,13 @@ class App extends React.Component {
         />
 
         <footer role="contentinfo">
-          footer
+          <nav>
+            <ul>
+            <li><a href="https://github.com/erickmtza/flipflop-memory-game-client" onClick={this.leavingPage}>Github</a></li>
+            <li><a href="https://www.linkedin.com/in/erick-martinez-169099162/" onClick={this.leavingPage}>LinkedIn</a></li>
+          </ul>
+          </nav>
+          <section><strong>Developed 2019</strong></section>
         </footer>
 
       </MemoryContext.Provider>

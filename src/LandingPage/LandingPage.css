@@ -1,0 +1,63 @@
+main {
+    font-family: 'Karla', sans-serif;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.engage-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 650px;
+    height: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.engage-user section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.engage-user p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    border: 0;
+    background-color: rgb(37, 92, 124);
+}
+
+.lp-blockquote {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    max-width: 650px;
+}
+
+#player-name {
+    margin-bottom: 10px;
+}
+
+#name {
+    margin-right: 15px;
+    border-radius: 10px;
+    border: 3px solid rgb(37, 92, 124);
+    padding: 10px 10px;
+    margin-top: 3px;
+}
+
+.close-btn {
+    float: right;
+    position: relative;
+    margin-top: 15px;
+}

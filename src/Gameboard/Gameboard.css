@@ -1,0 +1,46 @@
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid rgb(37, 92, 124);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+fieldset {
+    border: 0;
+    text-align: center;
+}
+
+.modal-start p {
+    text-align: center;
+    width: 95%;
+}
+
+.modal-start-btn {
+    float: right;
+}
+
+blockquote {
+    font-family: 'Courgette', cursive;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+blockquote span {
+    font-size: 1.5em;
+}
+
+.bq-modal {
+    margin-bottom: 10px;
+}
+
+.modal-end-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

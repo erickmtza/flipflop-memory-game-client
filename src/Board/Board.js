@@ -12,7 +12,7 @@ export default function Board({disabled, dimension, cards, solved, flipped, hand
                     key={card.id}
                     id={card.id}
                     type={card.type}
-                    width={dimension < 700 ? dimension / 4.25 : 700 / 4.5}
+                    width={dimension < 700 ? dimension / 4.5 : 700 / 4.5}
                     height={dimension < 700 ? dimension / 4.5 : 700 / 4.5}
                     flipped={flipped.includes(card.id)}
                     handleClick={handleClick}

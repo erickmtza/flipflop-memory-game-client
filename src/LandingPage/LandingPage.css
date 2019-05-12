@@ -61,3 +61,8 @@ button {
     position: relative;
     margin-top: 15px;
 }
+
+legend {
+    margin-left: auto;
+    margin-right: auto;
+}

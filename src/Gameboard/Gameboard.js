@@ -142,7 +142,7 @@ export default function Gameboard() {
     return (
         <main>
             {!ready && <Modal>
-                <section class="modal-start">
+                <section className="modal-start">
                     {!value.player_name ? 
                     <><p>Please visit the home page to set up your player name.</p>
                     <Link to="/"><button className="modal-start-btn">Home</button></Link></>

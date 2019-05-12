@@ -11,7 +11,6 @@ function LandingPage(props) {
     return (
         <MemoryContext.Consumer>
             {(context) => {
-                console.log(context.showNameInput)
                 return (
                     <main>
 

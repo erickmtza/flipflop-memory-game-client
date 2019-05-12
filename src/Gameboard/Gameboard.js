@@ -26,7 +26,6 @@ export default function Gameboard() {
             "timer": timer,
         }
 
-        console.log(playerPost)
         if (solved.length === 16 && timer !== 0) {
             fetch(`https://evening-fjord-94655.herokuapp.com/api/players`, {
                 method: 'POST',

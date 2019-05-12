@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # FlipFlop Memory Game
 Live App link: 
 - [Live Demo](https://flipflop-memory-game.777areri.now.sh/)
@@ -26,7 +24,6 @@ Leaderboard:
 * CSS
 * Html
 * Javascript
-Repo: [GitHub Repo](https://github.com/erickmtza/flipflop-memory-game-client)
 
 ### Back End
 * Node.js
@@ -34,7 +31,7 @@ Repo: [GitHub Repo](https://github.com/erickmtza/flipflop-memory-game-client)
 * RESTful API endpoints
 * PostgreSQL
 * Mocha & Chai (testing)
-Repo: [GitHub Repo](https://github.com/erickmtza/flipflop-memory-game-API)
+- Repo: [GitHub Repo](https://github.com/erickmtza/flipflop-memory-game-API)
 
 ## Features
 
